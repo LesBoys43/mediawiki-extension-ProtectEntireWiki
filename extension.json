@@ -1,0 +1,9 @@
+{
+	"name": "ProtectEntireWiki",
+	"author": "LBLaiSiNanHai",
+	"description": "This extension can protect entire wiki",
+	"version": "indev",
+	"license-name": "BSD-3-Clause",
+	"type": "anti-spam",
+	"manifest_version": 2
+}
