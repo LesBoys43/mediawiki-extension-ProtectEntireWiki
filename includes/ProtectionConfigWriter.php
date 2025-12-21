@@ -10,4 +10,8 @@ class ProtectionConfigWriter {
 		$cont = implode("\n", $data);
 		return file_put_contents($cont);
 	}
+	public static function writeDataToConf($data) {
+		$loc = $wgPEWProtectionConfigFileLoc ?? $IP . "/extensions/ProtectEntireWiki/pconf.txt";
+		return self::writeDataTo($data, $loc);
+	}
 }
