@@ -1,11 +1,11 @@
 <?php
+include "ProtectionConfigDecoder.php";
 class ProtectionConfigReader {
 	public function __construct() {
 		throw new BadMethodCallException("This is a static-only-class");
 	}
 	public static function readFrom($txt) {
-		$txt_lines = explode("\n", $txt);
-		return [trim($txt_lines[0]) != "*"];
+		return ProtectionConfigDecoder::deocde($txt);
 	}
 	public static function readFromConf() {
 		global $IP;
