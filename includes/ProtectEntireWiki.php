@@ -23,4 +23,7 @@ class ProtectEntireWiki {
 		}
 		return $this-conf[0] === true;
 	}
+	public function changeProt($canEdit) {
+		$this->conf[0] = $canEdit;
+	}
 }
