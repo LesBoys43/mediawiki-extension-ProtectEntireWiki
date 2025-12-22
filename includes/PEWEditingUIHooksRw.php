@@ -4,9 +4,9 @@ include_once "PEWErrorUI.php";
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\Context\RequestContext;
 class PEWEditingUIHooksRw {
-	public funciton onEditPage__showEditForm_initial($editor, $out = null) {
+	public function onEditPage__showEditForm_initial($editor, $out = null) {
 		$title = $editor->getTitle();
-		$pew = protectEntireWiki::getInstance();
+		$pew = ProtectEntireWiki::getInstance();
 		if ($pew->canEdit()) {
 			return;
 		}
