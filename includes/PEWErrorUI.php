@@ -5,7 +5,7 @@ class PEWErrorUI {
 	}
 	public static function getProtectedHTML($reqCtx, $pageTitle) {
 		return $reqCtx
-			->msg('pew-wiki-protected-edit-disallowed-msg1box')
+			->msg('pew-wiki-protected-edit-disallowed-msgbox')
 			->params($pageTitle, $reqCtx->getUser()->getName())
 			->plain();
 	}
