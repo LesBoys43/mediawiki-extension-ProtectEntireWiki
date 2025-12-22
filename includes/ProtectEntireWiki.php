@@ -6,7 +6,7 @@ class ProtectEntireWiki {
 		$this->conf = ProtectionConfigReader::readFromConf();
 	}
 	public function __destruct() {
-		$this->safe();
+		$this->save();
 	}
 	public static function getInstance() {
 		if ($ins == null) {
@@ -27,6 +27,6 @@ class ProtectEntireWiki {
 		$this->conf[0] = $canEdit;
 	}
 	public function save() {
-		ProtectionConfigWriter::writeToConf($this->$conf);
+		ProtectionConfigWriter::writeToConf($this->conf);
 	}
 }
