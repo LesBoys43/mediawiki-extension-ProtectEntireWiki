@@ -8,6 +8,7 @@ class ProtectionConfigReader {
 		return [trim($txt_lines[0]) == "*"];
 	}
 	public static function readFromConf() {
+		global $IP;
 		$loc = $wgPEWProtectionConfigFileLoc ?? $IP . "/extensions/ProtectEntireWiki/pconf.txt";
 		if (!file_exists($loc)) {
 			throw new LogicException("Config file must exist");

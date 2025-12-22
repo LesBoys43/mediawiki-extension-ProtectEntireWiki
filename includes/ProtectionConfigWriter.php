@@ -12,6 +12,7 @@ class ProtectionConfigWriter {
 		return file_put_contents($cont);
 	}
 	public static function writeToConf($data) {
+		global $IP;
 		$loc = $wgPEWProtectionConfigFileLoc ?? $IP . "/extensions/ProtectEntireWiki/pconf.txt";
 		return self::writeTo($data, $loc);
 	}
