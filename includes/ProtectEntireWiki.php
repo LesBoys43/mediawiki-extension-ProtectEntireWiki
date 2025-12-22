@@ -23,7 +23,7 @@ class ProtectEntireWiki {
 		if (!$this->conf) {
 			throw new BadMethodCallException("Config not loaded, please try forceReloadConf");
 		}
-		return $this-conf[0] === true;
+		return $this->conf[0] === true;
 	}
 	public function changeProt($canEdit) {
 		if (!$this->conf) {
