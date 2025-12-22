@@ -17,6 +17,6 @@
 		}
 	},
 	"Hooks": {
-		"onEditPage::showEditForm:initial": "PEWEditingUIRwHookHandler"
+		"EditPage::showEditForm:initial": "PEWEditingUIRwHookHandler"
 	}
 }
