@@ -4,6 +4,8 @@ class PEWErrorUI {
 		throw new BadMethodCallException("This is a static-only-class");
 	}
 	public static function getProtectedHTML($reqCtx, $pageTitle) {
-		return $reqCtx->msg('pew-wiki-protected-edit-disallowed-msg1box')->params($pageTitle, $reqCtx->getUser()->getName());
+		return $reqCtx
+			->msg('pew-wiki-protected-edit-disallowed-msg1box')
+			->params($pageTitle, $reqCtx->getUser()->getName());
 	}
 }
