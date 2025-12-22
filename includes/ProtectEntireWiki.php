@@ -14,6 +14,9 @@ class ProtectEntireWiki {
 		}
 		return $this->ins;
 	}
+	public function forceReloadConf() {
+		$this->conf = ProtectionConfigReader::readFromConf();
+	}
 	public function canEdit() {
 		if (!$this->conf) {
 			throw new BadMethodCallException("Config not loaded, please try forceReloadConf");
