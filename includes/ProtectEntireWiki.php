@@ -3,7 +3,7 @@ class ProtectEntireWiki {
 	public $conf;
 	public $ins = null;
 	private function __construct() {
-		$this->conf = ProtectionConfigParsr::parseFromConf();
+		$this->conf = ProtectionConfigReader::readFromConf();
 	}
 	public function __destruct() {
 		ProtectionConfigWriter::writeToConf($this->$conf);
