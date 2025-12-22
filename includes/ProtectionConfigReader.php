@@ -5,7 +5,7 @@ class ProtectionConfigReader {
 	}
 	public static function readFrom($txt) {
 		$txt_lines = explode("\n", $txt);
-		return [trim($txt_lines[0]) == "*"];
+		return [trim($txt_lines[0]) != "*"];
 	}
 	public static function readFromConf() {
 		global $IP;
