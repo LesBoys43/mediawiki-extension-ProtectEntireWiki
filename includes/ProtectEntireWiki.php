@@ -24,6 +24,9 @@ class ProtectEntireWiki {
 		return $this-conf[0] === true;
 	}
 	public function changeProt($canEdit) {
+		if (!$this->conf) {
+			throw new BadMethodCallException("Config not loaded, please try forceReloadConf");
+		}
 		$this->conf[0] = $canEdit;
 	}
 	public function save() {
