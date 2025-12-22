@@ -3,7 +3,7 @@ include_once "ProtectConfigReader.php";
 include_once "ProtectConfigWriter.php";
 class ProtectEntireWiki {
 	public $conf;
-	public $ins = null;
+	public static $ins = null;
 	private function __construct() {
 		$this->conf = ProtectionConfigReader::readFromConf();
 	}
@@ -11,10 +11,10 @@ class ProtectEntireWiki {
 		$this->save();
 	}
 	public static function getInstance() {
-		if ($ins == null) {
-			$this->ins = new self();
+		if (self::$ins == null) {
+			self::$ins = new self();
 		}
-		return $this->ins;
+		return self::$ins;
 	}
 	public function forceReloadConf() {
 		$this->conf = ProtectionConfigReader::readFromConf();
