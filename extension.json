@@ -15,5 +15,8 @@
 			"class": "PEWEditingUIHooksRw",
 			"services": []
 		}
+	},
+	"Hooks": {
+		"onEditPage::showEditForm:initial": "PEWEditingUIRwHookHandler"
 	}
 }
