@@ -10,4 +10,10 @@
 		"ProtectEntireWiki": "includes/ProtectEntireWiki.php",
 		"PEWEditingUIHooksRw": "includes/PEWEditingUIHooksRw.php"
 	},
+	"HookHandlers": {
+		"PEWEditingUIRwHookHandler": {
+			"class": "PEWEditingUIHooksRw",
+			"services": []
+		}
+	}
 }
