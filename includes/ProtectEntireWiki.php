@@ -2,8 +2,8 @@
 include_once "ProtectConfigReader.php";
 include_once "ProtectConfigWriter.php";
 class ProtectEntireWiki {
-	public $conf;
-	public static $ins = null;
+	protected $conf;
+	private static $ins = null;
 	private function __construct() {
 		$this->conf = ProtectionConfigReader::readFromConf();
 	}
