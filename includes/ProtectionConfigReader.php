@@ -10,7 +10,7 @@ class ProtectionConfigReader {
 	public static function readFromConf() {
 		$loc = $wgPEWProtectionConfigFileLoc ?? $IP . "/extensions/ProtectEntireWiki/pconf.txt";
 		if (!file_exists($loc)) {
-			throw new LogicException("Check the LocalSettings, the protection config file not exist");
+			throw new LogicException("Config file must exist");
 		}
 		return self::readFrom(file_get_contents($loc));
 	}
