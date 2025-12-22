@@ -1,6 +1,6 @@
 <?php
-include_once "ProtectConfigReader.php";
-include_once "ProtectConfigWriter.php";
+include_once "ProtectionConfigReader.php";
+include_once "ProtectionConfigWriter.php";
 class ProtectEntireWiki {
 	protected $conf;
 	private static $ins = null;
