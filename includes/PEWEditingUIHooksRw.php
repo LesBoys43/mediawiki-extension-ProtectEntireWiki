@@ -1,6 +1,8 @@
 <?php
 include_once "ProtectEntireWiki.php";
+include_once "PEWErrorUI.php";
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
+use MediaWiki\Context\RequestContext;
 class PEWEditingUIHooksRw {
 	public funciton onEditPage__showEditForm_initial($editor, $out = null) {
 		$title = $editor->getTitle();
@@ -9,6 +11,13 @@ class PEWEditingUIHooksRw {
 			return;
 		}
 		# Cannot edit now, because entire wiki protected
-		# TODO: Render error info
+		if ($out) {
+			$ctx = $out->getContext();
+		} else {
+			# Use main context for fallback
+			$ctx = RequestContext::getMain();
+		}
+		$html = PEWErrorUI::getProtectedHTML($ctx, $title);
+		$editor->editFormPageTop .= $html;
 	}
 }
