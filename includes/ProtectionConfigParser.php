@@ -1,17 +1,17 @@
 <?php
-class ProtectionConfigReader {
+class ProtectionConfigParser {
 	public function __construct() {
 		throw new BadMethodCallException("This is a static-only-class");
 	}
-	public static function readFrom($txt) {
+	public static function parseFrom($txt) {
 		$txt_lines = explode("\n", $txt);
 		return [trim($txt_lines[0]) == "*"];
 	}
-	public static function readFromConf() {
+	public static function parseFromConf() {
 		$loc = $wgPEWProtectionConfigFileLoc ?? $IP . "/extensions/ProtectEntireWiki/pconf.txt";
 		if (!file_exists($loc)) {
 			throw new LogicException("Check the LocalSettings, the protection config file not exist");
 		}
-		return self::readFrom(file_get_contents($loc));
+		return self::parseCustomTxt(file_get_contents($loc));
 	}
 }
