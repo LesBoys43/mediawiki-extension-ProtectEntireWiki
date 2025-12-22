@@ -14,4 +14,10 @@ class ProtectEntireWiki {
 		}
 		return $this->ins;
 	}
+	public function canEdit() {
+		if (!$this->conf) {
+			throw new BadMethodCallException("Config not loaded, please try forceReloadConf");
+		}
+		return $this-conf[0] === true;
+	}
 }
