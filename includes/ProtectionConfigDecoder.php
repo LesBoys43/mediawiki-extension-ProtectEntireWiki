@@ -9,7 +9,7 @@ class ProtectionConfigDecoder {
 		$lns = explode("\n", $cont);
 		foreach ($lns as $ln) {
 			$parted = explode("=", trim($ln));
-			switch (count($parted)):
+			switch (count($parted)) {
 				case 1:
 					$conf[$parted[0]] = [bin2hex(random_bytes(24))];
 					break;
@@ -18,6 +18,7 @@ class ProtectionConfigDecoder {
 					break;
 				default:
 					throw new LogicException("Bad config text, too many '=' in one line");
+			}
 		}
 		return $conf;
 	}
