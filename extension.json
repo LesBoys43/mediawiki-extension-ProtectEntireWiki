@@ -8,16 +8,22 @@
 	"manifest_version": 2,
 	"AutoloadedClasses": {
 		"ProtectEntireWiki": "includes/ProtectEntireWiki.php",
-		"PEWEditingUIHooksRw": "includes/PEWEditingUIHooksRw.php"
+		"PEWEditingUIHooksRw": "includes/PEWEditingUIHooksRw.php",
+		"PEWEditingSavingHooks": "includes/PEWEditingSavingHooks.php"
 	},
 	"HookHandlers": {
 		"PEWEditingUIHooksRwHookHandler": {
 			"class": "PEWEditingUIHooksRw",
 			"services": []
+		},
+		"PEWEditingSavingHooksHookHandler": {
+			"class": "PEWEditingSavingHooks",
+			"services": []
 		}
 	},
 	"Hooks": {
-		"EditPage::showEditForm:initial": "PEWEditingUIHooksRwHookHandler"
+		"EditPage::showEditForm:initial": "PEWEditingUIHooksRwHookHandler",
+		"EditPage::attemptSave": "PEWEditingSavingHooksHookHandler"
 	},
 	"MessagesDirs": {
 		"ProtectEntireWiki": [
