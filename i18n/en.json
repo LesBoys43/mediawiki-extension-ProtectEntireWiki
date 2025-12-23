@@ -1,6 +1,6 @@
 {
 	"protectentirewiki-desc": "This extension allows system operators to protect the entire wiki or entire namespace.",
 	"protectentirewiki-edit-disallowed-msgbox-title": "You have been disallowed from editing this page!",
-	"protectentirewiki-edit-disallowed-text-before-page": ", the wiki you are editing or the namespace of the page you are editing (",
-	"protectentirewiki-edit-disallowed-text-after-page": ") has been protected by system operators, ask them for more information."
+	"protectentirewiki-edit-disallowed-msgbox-text-before-page": ", the wiki you are editing or the namespace of the page you are editing (",
+	"protectentirewiki-edit-disallowed-msgbox-text-after-page": ") has been protected by system operators, ask them for more information."
 }
