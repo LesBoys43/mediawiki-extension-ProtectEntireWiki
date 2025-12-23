@@ -2,5 +2,5 @@
 	"protectentirewiki-desc": "本扩展允许管理员保护整个维基或者保护整个名字空间。",
 	"protectentirewiki-edit-disallowed-msgbox-title": "阁下不被允许编辑此页面！",
 	"protectentirewiki-edit-disallowed-msgbox-text-before-page": "，阁下目前正在编辑的维基或阁下目前编辑正在编辑的页面（",
-	"protectentirewiki-edit-disallowed-msgbox-text-after-page": "所处的名字空间已经被统一保护，请联系维基的管理员以获取更多信息。"
+	"protectentirewiki-edit-disallowed-msgbox-text-after-page": "）所处的名字空间已经被统一保护，请联系维基的管理员以获取更多信息。"
 }
