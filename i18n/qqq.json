@@ -1,6 +1,7 @@
 {
 	"protectentirewiki-desc": "（扩展描述）",
 	"protectentirewiki-edit-disallowed-msgbox-title": "（编辑不被允许消息框标题）",
+	"protectentirewiki-edit-savefailed-msgbox-title": "（编辑保存失败信息框标题）",
 	"protectentirewiki-edit-disallowed-msgbox-text-before-page": "（编辑不被允许消息框在页面名前的文字）",
 	"protectentirewiki-edit-disallowed-msgbox-text-after-page": "（编辑不被允许消息框在页面名后的文字）"
 }
