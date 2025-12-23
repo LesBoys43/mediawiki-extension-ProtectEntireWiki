@@ -10,8 +10,8 @@ class PEWEditingUIHooksRw implements EditPage__showEditForm_initialHook{
 		if ($out) {
 			$ctx = $out->getContext();
 		} else {
-			# Use main context for fallback
-			$ctx = RequestContext::getMain();
+			# Use editor context for fallback
+			$ctx = $editor->getContext();
 		}
 		$title = $editor->getArticle()->getTitle();
 		if ($pew->canEdit($title->getNamespaceKey(), $ctx->getUser())) {
