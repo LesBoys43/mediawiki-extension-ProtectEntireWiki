@@ -16,7 +16,7 @@ class PEWEditingUIHooksRw implements EditPage__showEditForm_initialHook{
 			$ctx = $editor->getContext();
 		}
 		$title = $editor->getArticle()->getTitle();
-		$logger->debug("Namespace key of ${strval($title)} is ${$title->getNamespaceKey()}");
+		$logger->debug("Namespace key of $title is {$title->getNamespaceKey()}");
 		if ($pew->canEdit($title->getNamespaceKey(), $ctx->getUser())) {
 			return;
 		}
