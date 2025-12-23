@@ -19,11 +19,13 @@ class ProtectEntireWiki {
 	public function forceReloadConf() {
 		$this->conf = ProtectionConfigReader::readFromConf();
 	}
-	public function canEdit() {
+	public function canEdit($ns = "*", $user = null) {
 		if (!$this->conf) {
 			throw new BadMethodCallException("Config not loaded, please try forceReloadConf");
 		}
-		return $this->conf[0] === true;
+		if (!isset($conf[strval($ns)])) {
+			return true;
+		}
 	}
 	public function changeProt($canEdit) {
 		if (!$this->conf) {
