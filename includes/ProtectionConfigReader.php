@@ -5,7 +5,7 @@ class ProtectionConfigReader {
 		throw new BadMethodCallException("This is a static-only-class");
 	}
 	public static function readFrom($txt) {
-		return ProtectionConfigDecoder::deocde($txt);
+		return ProtectionConfigDecoder::decode($txt);
 	}
 	public static function readFromConf() {
 		global $IP;
