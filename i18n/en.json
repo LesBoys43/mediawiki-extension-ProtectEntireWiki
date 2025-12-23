@@ -1,4 +1,4 @@
 {
 	"protectentirewiki-desc": "This extension allows system operators to protect the entire wiki or entire namespace",
-	"pew-wiki-protected-edit-disallowed-msgbox": "<div class=\"cdx-card\" id=\"pewbox\"><h4>You have been disallowed from editing this page!</h4><hr/><span class=\"cdx-card__text\" style=\"display: inline\"><span style=\"float: left\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/f/f1/Stop_hand_nuvola.svg\" width=48 height=48 alt=\"Stop hand\"/></span><b>$2</b><bdi dir=\"ltr\">, the wiki you are editing or the namespace of the page you are editing (</bdi><b>$1</b><bdi dir=\"ltr\">) has been protected by system operators, ask them for more information.</bdi></span></div>"
+	"pew-wiki-protected-edit-disallowed-msgbox": "<div class=\"cdx-card\"><h3>You have been disallowed from editing this page!</h3><span class=\"cdx-card__text\"><b>$2</b><bdi dir=\"ltr\">, the wiki you are editing or the namespace of the page you are editing (</bdi><b>$1</b><bdi dir=\"ltr\">) has been protected by system operators, ask them for more information.</bdi></span></div>"
 }
