@@ -9,7 +9,7 @@ class PEWErrorUI {
 			$template,
 			[
 				"__PEWBOX_TITLE__" => $reqCtx->msg($s ? "protectentirewiki-edit-savefailed-msgbox-title" : "protectentirewiki-edit-disallowed-msgbox-title")->plain(),
-				"__PEWBOX_TEXT_BEFORE_PAGE__" => $reqCtx->msg($s ? "protectentirewiki-edit-generic-msgbox-text-before-page")->plain(),
+				"__PEWBOX_TEXT_BEFORE_PAGE__" => $reqCtx->msg("protectentirewiki-edit-generic-msgbox-text-before-page")->plain(),
 				"__PEWBOX_TEXT_AFTER_PAGE__" => $reqCtx->msg("protectentirewiki-edit-generic-msgbox-text-after-page")->plain(),
 				"$1" => $pageTitle,
 				"$2" => $reqCtx->getUser()->getName()
