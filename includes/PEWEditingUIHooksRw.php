@@ -7,16 +7,16 @@ class PEWEditingUIHooksRw implements EditPage__showEditForm_initialHook{
 	public function onEditPage__showEditForm_initial($editor, $out = null) {
 		$title = $editor->getTitle();
 		$pew = ProtectEntireWiki::getInstance();
-		if ($pew->canEdit()) {
-			return;
-		}
-		# Cannot edit now, because entire wiki protected
-		if ($out) {
+	·	if ($out) {
 			$ctx = $out->getContext();
 		} else {
 			# Use main context for fallback
 			$ctx = RequestContext::getMain();
 		}
+		if ($pew->canEdit($out->getUser())) {
+			return;
+		}
+		# Cannot edit now, because entire wiki protected
 		$html = PEWErrorUI::getProtectedHTML($ctx, $title);
 		$editor->editFormPageTop .= $html;
 	}
