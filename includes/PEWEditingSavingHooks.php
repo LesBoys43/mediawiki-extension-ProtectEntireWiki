@@ -20,6 +20,8 @@ class PEWEditingSavingHooks implements EditPage__attemptSaveHook{
 		$html = PEWErrorUI::getProtectedHTML($ctx, $title, true);
 		$editor->editFormPageTop .= $html;
 		# Show the form because the submit action cannot inject HTML directly
+		# But this action will call our UI hook, so add a magic flag
+		$editor->__pew_dont_show_disallowed_msgbox = true;
 		$editor->showEditForm();
 		return false;
 	}
