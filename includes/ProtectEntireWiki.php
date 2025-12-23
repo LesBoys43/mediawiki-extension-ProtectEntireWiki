@@ -33,7 +33,7 @@ class ProtectEntireWiki {
 					return in_array("*", $conf[ns]);
 				}
 				foreach ($user->getGroups() as $grp) {
-					if (in_array($grp, $conf["*"]) {
+					if (in_array($grp, $conf["*"])) {
 						return true;
 					}
 				}
@@ -45,7 +45,7 @@ class ProtectEntireWiki {
 			return in_array("*", $conf[ns]);
 		}
 		foreach (user->getGroups() as $grp) {
-			if (in_array($grp, $conf[$ns]) {
+			if (in_array($grp, $conf[$ns])) {
 				return true;
 			}
 		}
