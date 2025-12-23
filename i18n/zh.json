@@ -1,4 +1,4 @@
 {
 	"protectentirewiki-desc": "本扩展允许管理员保护整个维基或者保护整个名字空间。",
-	"pew-wiki-protected-edit-disallowed-msgbox": "<div class=\"cdx-card\"><h4>阁下不被允许编辑此页面！</h4><span class=\"cdx-card__text\" style=\"display: inline\"><span style=\"float: left\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/f/f1/Stop_hand_nuvola.svg\" width=48 height=48 alt=\"Stop hand\"/></span><b>$2</b><bdi dir=\"ltr\">，阁下目前正在编辑的维基或阁下目前编辑正在编辑的页面</bdi><b>$1</b><bdi dir=\"ltr\">所处的名字空间已经被统一保护，请联系维基的管理员以获取更多信息。</bdi></span></div>"
+	"pew-wiki-protected-edit-disallowed-msgbox": "<div class=\"cdx-card\"><h4>阁下不被允许编辑此页面！</h4><hr/><span class=\"cdx-card__text\" style=\"display: inline\"><span style=\"float: left\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/f/f1/Stop_hand_nuvola.svg\" width=48 height=48 alt=\"Stop hand\"/></span><b>$2</b><bdi dir=\"ltr\">，阁下目前正在编辑的维基或阁下目前编辑正在编辑的页面</bdi><b>$1</b><bdi dir=\"ltr\">所处的名字空间已经被统一保护，请联系维基的管理员以获取更多信息。</bdi></span></div>"
 }
