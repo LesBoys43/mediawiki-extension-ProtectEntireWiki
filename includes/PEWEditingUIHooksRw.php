@@ -17,6 +17,8 @@ class PEWEditingUIHooksRw implements EditPage__showEditForm_initialHook{
 		if ($pew->canEdit($title->getNamespaceKey(), $ctx->getUser())) {
 			return;
 		}
+		# Vector (legacy) does not load codex autoly, load it manually here
+		$editor->editFormPageTop .= "<script>mw.loader.load(\"@wikimedia/codex\")</script>";
 		# Cannot edit now, because entire wiki protected
 		$html = PEWErrorUI::getProtectedHTML($ctx, $title);
 		$editor->editFormPageTop .= $html;
