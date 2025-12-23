@@ -13,7 +13,7 @@ class PEWEditingUIHooksRw implements EditPage__showEditForm_initialHook{
 			# Use main context for fallback
 			$ctx = RequestContext::getMain();
 		}
-		if ($pew->canEdit($out->getUser())) {
+		if ($pew->canEdit($ctx->getUser())) {
 			return;
 		}
 		# Cannot edit now, because entire wiki protected
