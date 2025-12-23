@@ -19,7 +19,7 @@ class PEWEditingSavingHooks implements EditPage__attemptSaveHook{
 		$editor->editFormPageTop .= "<script>window.addEventListener(\"load\", function(){mw.loader.load(\"@wikimedia/codex\")})</script>";
 		# See PEWEditingUIHooksRw.php L26
 		$editor->editFormPageTop .= "<style>#pewbox{display: block; min-height: 96px;}</style>";
-		$html = PEWErrorUI::getProtectedHTML($ctx, $title);
+		$html = PEWErrorUI::getProtectedHTML($ctx, $title, true);
 		$editor->editFormPageTop .= $html;
 		return false;
 	}
