@@ -24,7 +24,16 @@ class ProtectEntireWiki {
 			throw new BadMethodCallException("Config not loaded, please try forceReloadConf");
 		}
 		if (!isset($conf[strval($ns)])) {
-			return true;
+			if (!isset($conf["*"])) {
+				return true;
+			} else {
+				foreach (user->getGroups() as $grp) {
+					if (in_array($grp, $conf["*"]) {
+						return true;
+					}
+				}
+				return false;
+			}
 		}
 	}
 	public function changeProt($canEdit) {
