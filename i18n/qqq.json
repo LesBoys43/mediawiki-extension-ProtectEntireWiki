@@ -1,4 +1,6 @@
 {
 	"protectentirewiki-desc": "（扩展描述）",
-	"pew-wiki-protected-edit-disallowed-msgbox": "（编辑不被允许信息框，传入的参数：1=$1、2=$2）"
+	"protectentirewiki-edit-disallowed-msgbox-title": "（编辑不被允许消息框标题）",
+	"protectentirewiki-edit-disallowed-text-before-page": "（编辑不被允许消息框在页面名前的文字）",
+	"protectentirewiki-edit-disallowed-text-after-page": "（编辑不被允许消息框在页面名后的文字）"
 }
