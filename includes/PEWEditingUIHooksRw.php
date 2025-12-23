@@ -3,8 +3,10 @@ include_once "ProtectEntireWiki.php";
 include_once "PEWErrorUI.php";
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Logger\LoggerFactory;
 class PEWEditingUIHooksRw implements EditPage__showEditForm_initialHook{
 	public function onEditPage__showEditForm_initial($editor, $out = null) {
+		$logger = LoggerFactory::getInstance("PEWDefaultLogger");
 		$title = $editor->getTitle();
 		$pew = ProtectEntireWiki::getInstance();
 		if ($out) {
