@@ -19,7 +19,7 @@ class PEWEditingUIHooksRw implements EditPage__showEditForm_initialHook{
 		}
 		# Cannot edit now, because entire wiki protected
 		# Vector (legacy) does not load codex autoly, load it manually here
-		$editor->editFormPageTop .= "<script>mw.loader.load(\"@wikimedia/codex\")</script>";
+		$editor->editFormPageTop .= "<script>window.addEventListener(\"load\", function(){mw.loader.load(\"@wikimedia/codex\")})</script>";
 		# For fix codex card bugs, load some hotfix style
 		$editor->editFormPageTop .= "<style>.cdx-card{flex-wrap: wrap !important;}</style>";
 		$html = PEWErrorUI::getProtectedHTML($ctx, $title);
