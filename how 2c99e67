@@ -1,0 +1,91 @@
+[33m2c99e67[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m typo
+[33m469f830[m typo fixes by sed
+[33m4cdb1ee[m typo
+[33m1f6363f[m i18n update because src updated
+[33m9e02379[m refactor error ui to parted text
+[33m7ce433a[m make box title bigger
+[33mc8f5ef8[m style updates
+[33m6e2cce8[m add id to box
+[33mf5f1304[m add a sep linee
+[33mf6a9161[m make text inline
+[33m682b014[m json missing comma fix, again
+[33mf0ccb19[m add stop hand img
+[33m3abab3b[m make js load after doc ready
+[33m78d2a30[m add style hotfixes
+[33m5fe7a2e[m load codex autoly
+[33m54e53c0[m json missing comma fix
+[33mbdc12ac[m i18n support confirm
+[33mc066aa7[m add dummy lang
+[33mcbcf2c0[m i18n for en
+[33mcfb70eb[m i18n for zh
+[33mfcda7f5[m change ctx src
+[33m4719d6b[m typo
+[33mf4be154[m typo fix by sed
+[33m522925d[m remove bad char
+[33md9e0076[m impl group-spec/user-spec prot in hook
+[33m0ed31f2[m typo
+[33ma23bc5e[m (temp) a wip copy of hook impl for new feat
+[33m6341d9f[m add block all special encode logic
+[33mf95ffe5[m gitignore
+[33mc879ba6[m add missing dollar, again
+[33me8e18dd[m syntax fast fixes
+[33m435b010[m add missing dollar
+[33m8d5e74f[m add user not spec fallback
+[33m0562310[m add ns-spec prot check logic
+[33m2cf1ded[m add every ns general prot check logic
+[33m9d2fc40[m perm check partial impl, impl non-ns-speced check
+[33mb8591da[m add encoder support for ns-based/user-based prot
+[33m02e0788[m switch syntax fixing
+[33mc35b767[m use independ decoder for conf
+[33me683c35[m add decoder support for group-based(&ns-based) ewp
+[33m595b363[m stub for independ decoder
+[33m78ca421[m add encoder support for group-based ewp
+[33mc5250df[m typo
+[33m91d8246[m typo
+[33ma0ffcf0[m reinvert inverted logic
+[33m606431e[m add global statement for fix
+[33m6d70d8e[m typo
+[33m00c8e43[m fix a bug that 'extends' interface
+[33mf1fd995[m add missing extending
+[33m81626ec[m reg hooks
+[33m16feeb8[m reg hook handlers
+[33mb2a18ea[m autoload hook cls
+[33m56d02dd[m syntax fixes
+[33m0196096[m typo
+[33m876339f[m fully impl rw editing ui hook
+[33m04e1a30[m add missing call
+[33ma20a7d8[m code format
+[33mf2675af[m rename a var to proper name
+[33mf1c2c1d[m add a func to get err msg html
+[33m36d5db0[m stub for ui helper cls
+[33m9a16323[m partial impl checks
+[33mbc24176[m stub for rw ui hook
+[33ma6fbae2[m protect key fields
+[33m9418c0c[m fix singleton impl syntax bugs
+[33m400abaa[m add includings
+[33m31514a3[m unitedize err msg
+[33mc582a2d[m add a safe check for prot updater
+[33m2a094ab[m typo
+[33m6bd98b2[m add missing php tag
+[33m71198db[m impl encoding logic
+[33m10f7bf6[m add a static cls for encode conf (stub now)
+[33ma664574[m impl save func and remove repeat codes
+[33m408cbf4[m impl dynamic prot update
+[33mb70918c[m impl conf force reload for dbg
+[33m648aa5e[m impl check can edit or not
+[33m0d1e489[m apply method renames by sed
+[33m399ca9d[m remove dup file
+[33m44d95ee[m syntax fixes
+[33m1f3a957[m unitedize cls naming
+[33m2c19787[m typo
+[33m79cacac[m stub impl (constructor, destructor, singleton basic impl) for main cls
+[33m2d30abc[m rename for methods
+[33m8aec8d1[m impl auto write to set loc
+[33m686a624[m impl auto parse from conf
+[33m1a833f7[m dont hard code config path
+[33m8cc8df5[m add a utility class to write config
+[33m4243b2d[m add a simple config parser
+[33m3272bf7[m add autoload
+[33mb085d86[m add a minimal impl file
+[33m951fc6d[m typo
+[33mf4230cd[m add a minimal extension.json
