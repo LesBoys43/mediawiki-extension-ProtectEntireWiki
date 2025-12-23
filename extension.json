@@ -11,13 +11,13 @@
 		"PEWEditingUIHooksRw": "includes/PEWEditingUIHooksRw.php"
 	},
 	"HookHandlers": {
-		"PEWEditingUIRwHookHandler": {
+		"PEWEditingUIHooksRwHookHandler": {
 			"class": "PEWEditingUIHooksRw",
 			"services": []
 		}
 	},
 	"Hooks": {
-		"EditPage::showEditForm:initial": "PEWEditingUIRwHookHandler"
+		"EditPage::showEditForm:initial": "PEWEditingUIHooksRwHookHandler"
 	},
 	"MessagesDirs": {
 		"ProtectEntireWiki": [
