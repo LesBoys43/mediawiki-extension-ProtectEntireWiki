@@ -21,6 +21,10 @@ class PEWEditingUIHooksRw implements EditPage__showEditForm_initialHook{
 			return;
 		}
 		# Cannot edit now, because entire wiki protected
+		if (isset($editor->__pew_dont_show_disallowed_msgbox) && $editor->__pew_dont_show_disallowed_msgbox) {
+			# The page is in saving step, we should not add the disallowed msgbox, saveing hook will add its own msgbox
+			return;
+		}
 		# Vector (legacy) does not load codex autoly, load it manually here
 		$editor->editFormPageTop .= "<script>window.addEventListener(\"load\", function(){mw.loader.load(\"@wikimedia/codex\")})</script>";
 		# For fix codex card bugs, load some hotfix style
