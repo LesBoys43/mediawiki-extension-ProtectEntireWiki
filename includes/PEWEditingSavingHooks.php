@@ -13,14 +13,14 @@ class PEWEditingSavingHooks implements EditPage__attemptSaveHook{
 		if ($pew->canEdit($title->getNamespaceKey(), $ctx->getUser())) {
 			return;
 		}
-		# Show the form because the submit action cannot inject HTML directly
-		$editor->showEditForm();
 		# Cannot edit, shows msg and aborts
 		$editor->editFormPageTop .= "<script>window.addEventListener(\"load\", function(){mw.loader.load(\"@wikimedia/codex\")})</script>";
 		# See PEWEditingUIHooksRw.php L26
 		$editor->editFormPageTop .= "<style>#pewbox{display: block; min-height: 96px;}</style>";
 		$html = PEWErrorUI::getProtectedHTML($ctx, $title, true);
 		$editor->editFormPageTop .= $html;
+		# Show the form because the submit action cannot inject HTML directly
+		$editor->showEditForm();
 		return false;
 	}
 }
