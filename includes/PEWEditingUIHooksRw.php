@@ -1,24 +1,31 @@
 <?php
 include_once "ProtectEntireWiki.php";
 include_once "PEWErrorUI.php";
-use MediaWiki\Hook\EditPage__attemptSave;
+use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Logger\LoggerFactory;
-class PEWEditingUIHooksRw implements EditPage__attemptSave{
-	public function onEditPage__attemptSave($editor) {
+class PEWEditingUIHooksRw implements EditPage__showEditForm_initialHook{
+	public function onEditPage__showEditForm_initial($editor, $out = null) {
+		$logger = LoggerFactory::getInstance("PEWDefaultLogger");
 		$title = $editor->getTitle();
 		$pew = ProtectEntireWiki::getInstance();
-		$ctx = $editor->getContext();
+		if ($out) {
+			$ctx = $out->getContext();
+		} else {
+			# Use editor context for fallback
+			$ctx = $editor->getContext();
+		}
 		$title = $editor->getArticle()->getTitle();
+		$logger->debug("Namespace key of $title is {$title->getNamespaceKey()}");
 		if ($pew->canEdit($title->getNamespaceKey(), $ctx->getUser())) {
 			return;
 		}
-		# Cannot edit, shows msg and aborts
+		# Cannot edit now, because entire wiki protected
+		# Vector (legacy) does not load codex autoly, load it manually here
 		$editor->editFormPageTop .= "<script>window.addEventListener(\"load\", function(){mw.loader.load(\"@wikimedia/codex\")})</script>";
-		# See PEWEditingUIHooksRw.php L26
+		# For fix codex card bugs, load some hotfix style
 		$editor->editFormPageTop .= "<style>#pewbox{display: block; min-height: 96px;}</style>";
 		$html = PEWErrorUI::getProtectedHTML($ctx, $title);
 		$editor->editFormPageTop .= $html;
-		return false;
 	}
 }
