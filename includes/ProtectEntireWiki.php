@@ -23,9 +23,9 @@ class ProtectEntireWiki {
 		if (!$this->conf) {
 			throw new BadMethodCallException("Config not loaded, please try forceReloadConf");
 		}
-		if (!isset($conf[strval($ns)])) {
+		if (!isset($this->conf[strval($ns)])) {
 			# No ns-spec protection here, checking default protection
-			if (!isset($conf["*"])) {
+			if (!isset($this->conf["*"])) {
 				return true;
 			} else {
 				if ($user == null) {
@@ -33,7 +33,7 @@ class ProtectEntireWiki {
 					return in_array("*", $conf[ns]);
 				}
 				foreach ($user->getGroups() as $grp) {
-					if (in_array($grp, $conf["*"])) {
+					if (in_array($grp, $this->conf["*"])) {
 						return true;
 					}
 				}
@@ -42,10 +42,10 @@ class ProtectEntireWiki {
 		}
 		# Ns-spec protection has higher prio
 		if ($user == null) {
-			return in_array("*", $conf[ns]);
+			return in_array("*", $this->conf[ns]);
 		}
 		foreach ($user->getGroups() as $grp) {
-			if (in_array($grp, $conf[$ns])) {
+			if (in_array($grp, $this->conf[$ns])) {
 				return true;
 			}
 		}
