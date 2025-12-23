@@ -18,5 +18,10 @@
 	},
 	"Hooks": {
 		"EditPage::showEditForm:initial": "PEWEditingUIRwHookHandler"
+	},
+	"MessagesDirs": {
+		"ProtectEntireWiki": [
+			"i18n"
+		]
 	}
 }
