@@ -1,10 +1,10 @@
 <?php
 include_once "ProtectEntireWiki.php";
 include_once "PEWErrorUI.php";
-use MediaWiki\Hook\EditPage__attemptSave;
+use MediaWiki\Hook\EditPage__attemptSaveHook;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Logger\LoggerFactory;
-class PEWEditingSavingHooks implements EditPage__attemptSave{
+class PEWEditingSavingHooks implements EditPage__attemptSaveHook{
 	public function onEditPage__attemptSave($editor) {
 		$title = $editor->getTitle();
 		$pew = ProtectEntireWiki::getInstance();
