@@ -24,6 +24,7 @@ class ProtectEntireWiki {
 			throw new BadMethodCallException("Config not loaded, please try forceReloadConf");
 		}
 		if (!isset($conf[strval($ns)])) {
+			# No ns-spec protection here, checking default protection
 			if (!isset($conf["*"])) {
 				return true;
 			} else {
@@ -35,6 +36,13 @@ class ProtectEntireWiki {
 				return false;
 			}
 		}
+		# Ns-spec protection has higher prio
+		foreach (user->getGroups() as $grp) {
+			if (in_array($grp, $conf[$ns]) {
+				return true;
+			}
+		}
+		return false;
 	}
 	public function changeProt($canEdit) {
 		if (!$this->conf) {
