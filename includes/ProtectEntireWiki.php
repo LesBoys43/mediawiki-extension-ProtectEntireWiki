@@ -28,6 +28,10 @@ class ProtectEntireWiki {
 			if (!isset($conf["*"])) {
 				return true;
 			} else {
+				if ($user == null) {
+					# User not provided, only check the everybody is allowed or not
+					return in_array("*", $conf[ns]);
+				}
 				foreach (user->getGroups() as $grp) {
 					if (in_array($grp, $conf["*"]) {
 						return true;
@@ -37,6 +41,9 @@ class ProtectEntireWiki {
 			}
 		}
 		# Ns-spec protection has higher prio
+		if ($user == null) {
+			return in_array("*", $conf[ns]);
+		}
 		foreach (user->getGroups() as $grp) {
 			if (in_array($grp, $conf[$ns]) {
 				return true;
