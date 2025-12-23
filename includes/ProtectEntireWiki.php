@@ -44,7 +44,7 @@ class ProtectEntireWiki {
 		if ($user == null) {
 			return in_array("*", $conf[ns]);
 		}
-		foreach (user->getGroups() as $grp) {
+		foreach ($user->getGroups() as $grp) {
 			if (in_array($grp, $conf[$ns])) {
 				return true;
 			}
