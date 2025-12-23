@@ -1,5 +1,13 @@
 <?php
+require_once "ProtectEntireWiki.php";
 use MediaWiki\Page\Hook\RollbackCompleteHook;
-class PEWRollbackingHooks {
-	
+use MediaWiki\MediaWikiServices;
+class PEWRollbackingHooks implements RollbackCompleteHook {
+	public function onRollbackComplete($wikiPage, $user, $rev, $curr) {
+		$pew = ProtectEntireWiki::getInstance();
+		if ($pew->canRollback($wikiPage->getTitle()->getNamespaceKey(), $user)) {
+			return true;
+		}
+		$svcFactory = MediaWikiServices::getInstance();
+	}
 }
