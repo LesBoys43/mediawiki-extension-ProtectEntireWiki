@@ -17,4 +17,22 @@ class PEWErrorUI {
 		);
 		return $actual;
 	}
+	public static function getRollbackFailActorTalkpageWikitext($reqCtx, $pageTitle, $actor, $msgLeaver) {
+		$template = "
+== __PEW_ROLLBACK_FAILED_TITLE__ ==
+[[File:Stop_hand_nuvola.svg|thumb|left|48px|48px]]$2__PEW_ROLLBACK_FAILED_TEXT_BEFRE_PAGE__$1__PEW_ROLLBACK_FAILED_TEXT_AFTER_PAGE____PEW_TP_MSG_SIGN__
+		";
+		$actual = strtr(
+			$template,
+			[
+				"$2" => $pageTitle,
+				"$1" => $actor->getName(),
+				"__PEW_ROLLBACK_FAILED_TITLE__" => $reqCtx->msg("protectentirewiki-rollback-actionreverted-talkpage-msg-sect-title")->plain(),
+				"__PEW_ROLLBACK_FAILED_TEXT_BEFORE_PAGE__" => $reqCtx->msg("protectionentirewiki-rollback-actionreverted-talkpage-msg-text-before-page")->plain(),
+				"__PEW_ROLLBACK_FAILED_TEXT_AFTER_PAGE__" => $reqCtx->msg("protectionentirewiki-rollback-actionreverted-talkpage-msg-text-after-page")->plain(),
+				"__PEW_TP_MSG_SIGN__" => $reqCtx->msg("protectionentirewiki-rollback-actionreverted-talkpage-sign")->params($actor->getName())->plain()
+			]
+		);
+		return $actual;
+	}
 }
