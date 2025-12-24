@@ -1,1 +1,0 @@
-git-filter-repo --commit-callback "exec(\"if commit.author_name == b'Les Boys':\\n    commit.author_name = b'LBLaiSiNanHai'\\nif commit.committer_name == b'Les Boys':\\n    commit.committer_name = b'LBLaiSiNanHai'\")" --force
