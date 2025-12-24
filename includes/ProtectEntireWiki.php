@@ -31,7 +31,7 @@ class ProtectEntireWiki {
 			} else {
 				if ($user == null) {
 					# User not provided, only check the everybody is allowed or not
-					return in_array("*", $this->conf[ns]);
+					return in_array("*", $this->conf["*"]);
 				}
 				foreach ($user->getGroups() as $grp) {
 					if (in_array($grp, $this->conf["*"])) {
