@@ -52,6 +52,17 @@ class ProtectEntireWiki {
 		}
 		return false;
 	}
+	public function canRollback($ns = "*", $user = null) {
+		if (canEdit($ns, $user)) {
+			# Can edit implies can rollback
+			return true;
+		}
+		if (!isset($this->conf[strval($ns)])) {
+			# Rollbacks defaully allowed
+			return true;
+		}
+		return in_array("disallow-rollback", $this->conf[strval($ns)]);
+	}
 	public function changeProt($canEdit) {
 		if (!$this->conf) {
 			throw new BadMethodCallException("Config not loaded, please try forceReloadConf");
