@@ -64,6 +64,7 @@ class ProtectEntireWiki {
 		return in_array("disallow-rollback", $this->conf[strval($ns)]);
 	}
 	public function changeProt($canEdit) {
+		# TODO: rewrite for new design
 		if (!$this->conf) {
 			throw new BadMethodCallException("Config not loaded, please try forceReloadConf");
 		}
