@@ -53,7 +53,7 @@ class ProtectEntireWiki {
 		return false;
 	}
 	public function canRollback($ns = "*", $user = null) {
-		if (canEdit($ns, $user)) {
+		if ($this->canEdit($ns, $user)) {
 			# Can edit implies can rollback
 			return true;
 		}
