@@ -11,7 +11,7 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 		}
 		$talkTitle = User::newFromIdentity($user)->getTalkPage();
 		$ctx = $wikiPage->getContext();
-		$talk = Article::newFromTitle($tpTitle, $ctx)
+		$talk = Article::newFromTitle($talkTitle, $ctx)
 				->getWikiPage();
 		$currTalkContent = $talk->getRevisionRecord()
 				->getSlots()
