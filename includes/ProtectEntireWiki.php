@@ -61,7 +61,7 @@ class ProtectEntireWiki {
 			# Rollbacks defaully allowed
 			return true;
 		}
-		return in_array("disallow-rollback", $this->conf[strval($ns)]);
+		return !in_array("disallow-rollback", $this->conf[strval($ns)]);
 	}
 	public function changeProt($canEdit) {
 		# TODO: rewrite for new design
