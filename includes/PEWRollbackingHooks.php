@@ -28,5 +28,7 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 		$actor->addGroup("bureaucrat");
 		$actor->addGroup("bot");
 		$tpWp->doEditUpdates($newRev, $actor);
+		# We need rollback the rollback
+		$wikiPage->doEditUpdates($curr, $actor);
 	}
 }
