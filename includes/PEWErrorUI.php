@@ -21,7 +21,7 @@ class PEWErrorUI {
 		$template = "
 == __PEW_ROLLBACK_FAILED_TITLE__ ==
 [[File:Stop_hand_nuvola.svg|thumb|left|48px|48px]]$2__PEW_ROLLBACK_FAILED_TEXT_BEFRE_PAGE__$1__PEW_ROLLBACK_FAILED_TEXT_AFTER_PAGE____PEW_TP_MSG_SIGN__
-		";O
+		";
 		$actual = strtr(
 			$template,
 			[
