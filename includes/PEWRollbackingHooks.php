@@ -2,7 +2,6 @@
 require_once "ProtectEntireWiki.php";
 include_once "PEWErrorUI.php";
 use MediaWiki\Page\Hook\RollbackCompleteHook;
-use MediaWiki\Context\RequestContext;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Revision\RevisionSlots;
 class PEWRollbackingHooks implements RollbackCompleteHook {
@@ -17,7 +16,7 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 		$talkTitle = User::newFromIdentity($user)->getTalkPage();
 		$ctx = RequestContext::getMain();
 		$talk = Article::newFromTitle($talkTitle, $ctx)
-				->getWikiPage();
+				->getPage();
 		$currTalkContent = $talk->getRevisionRecord()
 				->getSlots()
 				->getSlot(SlotRecord::MAIN)
