@@ -3,7 +3,7 @@ require_once "ProtectEntireWiki.php";
 include_once "PEWErrorUI.php";
 use MediaWiki\Page\Hook\RollbackCompleteHook;
 use MediaWiki\Revision\SlotRecord;
-use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Revision\MutableRevisionRecord;
 use MediaWiki\Revision\RevisionSlots;
 class PEWRollbackingHooks implements RollbackCompleteHook {
 	public function onRollbackComplete($wikiPage, $user, $rev, $curr) {
@@ -25,15 +25,13 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 		$currTalkWikitext = ContentHandler::getContentText($currTalkContent);
 		$noticeMsg = PEWErrorUI::getRollbackFailActorTalkpageWikitext($ctx, strval($wikiPage->getTitle()), $user, $actor);
 		$newWikitext = $oldWikitext . $noticeMsg;
-		$newRev = new RevisionRecord(
-			$talk,
-			new RevisionSlots([
-				SlotRecord::newUnsaved(
-					SlotRecord::MAIN,
-					new WikitextContent($newWikitext)
-				)
-			])
-		);
+		$newSlot = SlotRecord::newUnsaved(
+				SlotRecord::MAIN,
+				new WikitextContent($newWikitext)
+			);
+			
+		$newRev = new MutableRevisionRecord($talk);
+		$newRev->setSlot($newSlot);
 		$talk->doEditUpdates($newRev, $actor);
 		# We need rollback the rollback
 		$wikiPage->doEditUpdates($curr, $actor);
