@@ -23,7 +23,7 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 				->getContent();
 		$currTalkWikitext = ContentHandler::getContent($currTalkContent);
 		$noticeMsg = PEWErrorUI::getRollbackFailActorTalkpageWikitext($ctx, strval($wikiPage->getTitle()), $user, $actor);
-		$newWikitext = $oldWikitext . ;
+		$newWikitext = $oldWikitext . $noticeMsg;
 		$newRev = new RevisionRecord(
 			$talk,
 			new RevisionSlots([
