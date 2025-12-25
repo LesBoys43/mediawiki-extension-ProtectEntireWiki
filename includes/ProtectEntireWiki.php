@@ -1,7 +1,9 @@
 <?php
 include_once "ProtectionConfigReader.php";
 include_once "ProtectionConfigWriter.php";
+require_once "PEWEditingUIHooksRw.php";
 require_once "PEWEditingSavingHooks.php";
+require_once "PEWRollbackingHooks.php";
 class ProtectEntireWiki {
 	protected $conf;
 	private static $ins = null;
