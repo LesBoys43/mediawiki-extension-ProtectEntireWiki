@@ -6,7 +6,7 @@
 	"license-name": "BSD-3-Clause",
 	"type": "antispam",
 	"manifest_version": 2,
-	"AutoloadedClasses": {
+	"AutoloadClasses": {
 		"ProtectEntireWiki": "includes/ProtectEntireWiki.php",
 		"PEWEditingUIHooksRw": "includes/PEWEditingUIHooksRw.php",
 		"PEWEditingSavingHooks": "includes/PEWEditingSavingHooks.php",
