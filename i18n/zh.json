@@ -2,7 +2,7 @@
 	"protectentirewiki-desc": "本扩展允许管理员保护整个维基或者保护整个名字空间。",
 	"protectentirewiki-edit-disallowed-msgbox-title": "阁下不被允许编辑此页面！",
 	"protectentirewiki-edit-savefailed-msgbox-title": "阁下的编辑未能保存！",
-	"protectentirewiki-edit-generic-msgbox-text-before-page": "，阁下目前正在编辑的维基或阁下目前编辑正在编辑的页面（",
+	"protectentirewiki-edit-generic-msgbox-text-before-page": "，阁下目前正在编辑的维基或阁下目前编辑的页面（",
 	"protectentirewiki-edit-generic-msgbox-text-after-page": "）所处的名字空间已经被统一保护，请联系维基的管理员以获取更多信息。",
 	"protectentirewiki-rollback-actionreverted-talkpage-msg-sect-title": "阁下的回退未能完成！",
 	"protectentirewiki-rollback-actionreverted-talkpage-msg-text-before-page": "，阁下目前正在编辑的维基或阁下目前编辑的页面（",
