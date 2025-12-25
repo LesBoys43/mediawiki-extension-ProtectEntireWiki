@@ -36,6 +36,7 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 		$newRev->setUser($actor);
 		$newRev->setPageId($talk->getId());
 		$newRev->setTimestamp(wfTimestampNow());
+		$newRev->setComment($ctx->msg("protectentirewiki-rollback-actionreverted-talkpage-editsummary")->plain());
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getMaintenanceConnectionRef(DB_PRIMARY);
 		$savedRev = $revStore->insertRevisionOn($newRev, $dbw);
 		$talk->doEditUpdates($savedRev, $actor);
