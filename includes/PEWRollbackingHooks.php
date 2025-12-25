@@ -36,7 +36,7 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 		$newRev->setUser($actor);
 		$newRev->setPageId($talk->getId());
 		$newRev->setTimestamp(wfTimestampNow());
-		$savedRev = $revStore->insertRevisionOn($newRev);
+		$savedRev = $revStore->insertRevisionOn($newRev, $talk->getWikiId());
 		$talk->doEditUpdates($savedRev, $actor);
 		# We need rollback the rollback
 		$wikiPage->doEditUpdates($curr, $actor);
