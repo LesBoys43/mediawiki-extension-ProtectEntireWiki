@@ -9,7 +9,8 @@
 	"AutoloadedClasses": {
 		"ProtectEntireWiki": "includes/ProtectEntireWiki.php",
 		"PEWEditingUIHooksRw": "includes/PEWEditingUIHooksRw.php",
-		"PEWEditingSavingHooks": "includes/PEWEditingSavingHooks.php"
+		"PEWEditingSavingHooks": "includes/PEWEditingSavingHooks.php",
+		"PEWRollbackingHooks": "includes/PEWRollbackingHooks.php"
 	},
 	"HookHandlers": {
 		"PEWEditingUIHooksRwHookHandler": {
