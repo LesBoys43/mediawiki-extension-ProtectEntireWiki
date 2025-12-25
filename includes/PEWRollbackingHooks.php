@@ -29,10 +29,14 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 				SlotRecord::MAIN,
 				new WikitextContent($newWikitext)
 			);
-			
+		$revStore = MediaWikiServices::getInstance()->getRevisionStore();
 		$newRev = new MutableRevisionRecord($talk);
 		$newRev->setSlot($newSlot);
-		$talk->doEditUpdates($newRev, $actor);
+		$newRev->setUser($actor);
+		$newRev->setPageId($talk->getId());
+		$newRev->setTimestamp(wfTimestampNow());
+		$savedRev = $revStore->insertRevisionOn($newRev);
+		$talk->doEditUpdates($savedRev, $actor);
 		# We need rollback the rollback
 		$wikiPage->doEditUpdates($curr, $actor);
 	}
