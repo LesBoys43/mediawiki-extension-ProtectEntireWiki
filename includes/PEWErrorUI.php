@@ -25,8 +25,8 @@ class PEWErrorUI {
 		$actual = strtr(
 			$template,
 			[
-				"$1" => $pageTitle,
-				"$2" => $actor->getName(),
+				"$2" => $pageTitle,
+				"$1" => $user->getName(),
 				"__PEW_ROLLBACK_FAILED_TITLE__" => $reqCtx->msg("protectentirewiki-rollback-actionreverted-talkpage-msg-sect-title")->plain(),
 				"__PEW_ROLLBACK_FAILED_TEXT_BEFORE_PAGE__" => $reqCtx->msg("protectentirewiki-rollback-actionreverted-talkpage-msg-text-before-page")->plain(),
 				"__PEW_ROLLBACK_FAILED_TEXT_AFTER_PAGE__" => $reqCtx->msg("protectentirewiki-rollback-actionreverted-talkpage-msg-text-after-page")->plain(),
