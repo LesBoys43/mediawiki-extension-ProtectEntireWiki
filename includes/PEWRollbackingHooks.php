@@ -6,6 +6,7 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Revision\MutableRevisionRecord;
 use MediaWiki\Revision\RevisionSlots;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\CommentStore\CommentStoreComment;
 class PEWRollbackingHooks implements RollbackCompleteHook {
 	public function onRollbackComplete($wikiPage, $user, $rev, $curr) {
 		$pew = ProtectEntireWiki::getInstance();
@@ -36,7 +37,9 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 		$newRev->setUser($actor);
 		$newRev->setPageId($talk->getId());
 		$newRev->setTimestamp(wfTimestampNow());
-		$newRev->setComment($ctx->msg("protectentirewiki-rollback-actionreverted-talkpage-editsummary")->plain());
+		$newRev->setComment(
+			CommentStoreComment::newUnsavedComment($ctx->msg("protectentirewiki-rollback-actionreverted-talkpage-editsummary"))
+		);
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getMaintenanceConnectionRef(DB_PRIMARY);
 		$savedRev = $revStore->insertRevisionOn($newRev, $dbw);
 		$talk->doEditUpdates($savedRev, $actor);
