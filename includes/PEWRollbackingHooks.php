@@ -3,6 +3,7 @@ require_once "ProtectEntireWiki.php";
 include_once "PEWErrorUI.php";
 use MediaWiki\Page\Hook\RollbackCompleteHook;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionSlots;
 class PEWRollbackingHooks implements RollbackCompleteHook {
 	public function onRollbackComplete($wikiPage, $user, $rev, $curr) {
