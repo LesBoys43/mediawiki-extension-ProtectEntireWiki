@@ -53,6 +53,17 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 		$idReflector->setAccessible(true);
 		# We need set the mId to 0 to make revStore create a new rev in db
 		$idReflector->setValue($rev, 0);
+		$oldMainSlot = $rev->getSlots()
+				->getSlot(SlotRecord::MAIN);
+		$slotReflector = new ReflectionClass($oldMainSlot);
+		$setFieldReflector = $slotReflector->getMethod("setField");
+		$setFieldReflector->setAccessible(true);
+		# OK, we also need change the main slot
+		$setFieldReflector->invoke($oldMainSlot, "slot_revision_id", 0);
+		# Then, apply this slot to rev
+		$slotsReflector = $revReflector->getProperty("mSlots");
+		$slotsReflector->setAccessible(true);
+		$slotsReflector->setValue($rev, new RevisionSlots([$oldMainSlot]));
 		$savedOldRev = $revStore->insertRevisionOn($rev, $dbw);
 		$wikiPage->doEditUpdates($savedOldRev, $actor, [
 			"changed" => true,
