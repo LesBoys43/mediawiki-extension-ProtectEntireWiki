@@ -19,7 +19,8 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 		$ctx = RequestContext::getMain();
 		$talk = Article::newFromTitle($talkTitle, $ctx)
 				->getPage();
-		$currTalkContent = $talk->getRevisionRecord()
+		$currRev = $talk->getRevisionRecord();
+		$currTalkContent = $currRev
 				->getSlots()
 				->getSlot(SlotRecord::MAIN)
 				->getContent();
@@ -41,10 +42,16 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 		);
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getMaintenanceConnectionRef(DB_PRIMARY);
 		$savedRev = $revStore->insertRevisionOn($newRev, $dbw);
-		$talk->doEditUpdates($savedRev, $actor);
+		$talk->doEditUpdates($savedRev, $actor, [
+			"changed" => true,
+			"oldrevision" => $currRev->getId()
+		]);
 		$talk->updateRevisionOn($dbw, $savedRev, $savedRev->getId(), false);
 		# We need rollback the rollback
-		$wikiPage->doEditUpdates($rev, $actor);
+		$wikiPage->doEditUpdates($rev, $actor, [
+			"changed" => true,
+			"oldrevision" => $curr->getId()
+		]);
 		$wikiPage->updateRevisionOn($dbw, $rev, $rev->getId(), false);
 	}
 }
