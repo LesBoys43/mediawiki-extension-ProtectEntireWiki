@@ -19,11 +19,16 @@
 		"PEWEditingSavingHooksHookHandler": {
 			"class": "PEWEditingSavingHooks",
 			"services": []
+		},
+		"PEWRollbackingHooksHookHandler": {
+			"class": "PEWRollbackingHooks",
+			"services": []
 		}
 	},
 	"Hooks": {
 		"EditPage::showEditForm:initial": "PEWEditingUIHooksRwHookHandler",
-		"EditPage::attemptSave": "PEWEditingSavingHooksHookHandler"
+		"EditPage::attemptSave": "PEWEditingSavingHooksHookHandler",
+		"RollbackComplete": "PEWRollbackingHooksHookHandler"
 	},
 	"MessagesDirs": {
 		"ProtectEntireWiki": [
