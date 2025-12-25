@@ -6,7 +6,6 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Revision\MutableRevisionRecord;
 use MediaWiki\Revision\RevisionSlots;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\CommentStore\CommentStoreComment;
 class PEWRollbackingHooks implements RollbackCompleteHook {
 	public function onRollbackComplete($wikiPage, $user, $rev, $curr) {
 		$pew = ProtectEntireWiki::getInstance();
