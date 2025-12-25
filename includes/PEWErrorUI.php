@@ -20,7 +20,7 @@ class PEWErrorUI {
 	public static function getRollbackFailActorTalkpageWikitext($reqCtx, $pageTitle, $actor, $msgLeaver) {
 		$template = "
 == __PEW_ROLLBACK_FAILED_TITLE__ ==
-[[File:Stop_hand_nuvola.svg|thumb|left|48px|48px]]$2__PEW_ROLLBACK_FAILED_TEXT_BEFORE_PAGE__$1__PEW_ROLLBACK_FAILED_TEXT_AFTER_PAGE____PEW_TP_MSG_SIGN__
+[[File:Stop_hand_nuvola.svg|thumb|left|48px|48px]]'''$2'''__PEW_ROLLBACK_FAILED_TEXT_BEFORE_PAGE__'''$1'''__PEW_ROLLBACK_FAILED_TEXT_AFTER_PAGE____PEW_TP_MSG_SIGN__
 		";
 		$actual = strtr(
 			$template,
