@@ -48,6 +48,11 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 		]);
 		$talk->updateRevisionOn($dbw, $savedRev, $savedRev->getId(), false);
 		# We need rollback the rollback
+		$revReflector = new ReflectionClass($rev);
+		$idReflector = $revReflector->getProperty("mId");
+		$idReflector->setAccessible(true);
+		# We need set the mId to 0 to make revStore create a new rev in db
+		$idReflector->setValue($rev, 0);
 		$savedOldRev = $revStore->insertRevisionOn($rev, $dbw);
 		$wikiPage->doEditUpdates($savedOldRev, $actor, [
 			"changed" => true,
