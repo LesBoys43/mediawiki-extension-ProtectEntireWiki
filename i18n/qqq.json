@@ -3,5 +3,9 @@
 	"protectentirewiki-edit-disallowed-msgbox-title": "（编辑不被允许消息框标题）",
 	"protectentirewiki-edit-savefailed-msgbox-title": "（编辑保存失败信息框标题）",
 	"protectentirewiki-edit-generic-msgbox-text-before-page": "（编辑不被允许消息框在页面名前的文字）",
-	"protectentirewiki-edit-generic-msgbox-text-after-page": "（编辑不被允许消息框在页面名后的文字）"
+	"protectentirewiki-edit-generic-msgbox-text-after-page": "（编辑不被允许消息框在页面名后的文字）",
+	"protectentirewiki-rollback-actionreverted-talkpage-msg-sect-title": "（回退失败讨论页标题）",
+	"protectentirewiki-rollback-actionreverted-talkpage-msg-text-before-page": "（回退失败讨论页内容在页面名前的文字）",
+	"protectentirewiki-rollback-actionreverted-talkpage-msg-text-after-page": "（回退失败讨论页内容在页面名后的文字）",
+	"protectentirewiki-rollback-actionreverted-talkpage-sign": "（回退失败讨论页留言签名）"
 }
