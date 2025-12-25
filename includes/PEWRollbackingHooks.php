@@ -44,13 +44,13 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 		$savedRev = $revStore->insertRevisionOn($newRev, $dbw);
 		$talk->doEditUpdates($savedRev, $actor, [
 			"changed" => true,
-			"oldrevision" => $currRev->getId()
+			"oldrevision" => $currRev
 		]);
 		$talk->updateRevisionOn($dbw, $savedRev, $savedRev->getId(), false);
 		# We need rollback the rollback
 		$wikiPage->doEditUpdates($rev, $actor, [
 			"changed" => true,
-			"oldrevision" => $curr->getId()
+			"oldrevision" => $curr
 		]);
 		$wikiPage->updateRevisionOn($dbw, $rev, $rev->getId(), false);
 	}
