@@ -25,50 +25,12 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 				->getSlot(SlotRecord::MAIN)
 				->getContent();
 		$currTalkWikitext = ContentHandler::getContentText($currTalkContent);
-		$noticeMsg = PEWErrorUI::getRollbackFailActorTalkpageWikitext($ctx, strval($wikiPage->getTitle()), $user, $actor);
-		$newWikitext = $currTalkWikitext . $noticeMsg;
-		$newSlot = SlotRecord::newUnsaved(
-				SlotRecord::MAIN,
-				new WikitextContent($newWikitext)
-			);
-		$revStore = MediaWikiServices::getInstance()->getRevisionStore();
-		$newRev = new MutableRevisionRecord($talk);
-		$newRev->setSlot($newSlot);
-		$newRev->setUser($actor);
-		$newRev->setPageId($talk->getId());
-		$newRev->setTimestamp(wfTimestampNow());
-		$newRev->setComment(
-			CommentStoreComment::newUnsavedComment($ctx->msg("protectentirewiki-rollback-actionreverted-talkpage-editsummary"))
-		);
-		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getMaintenanceConnectionRef(DB_PRIMARY);
-		$savedRev = $revStore->insertRevisionOn($newRev, $dbw);
-		$talk->doEditUpdates($savedRev, $actor, [
-			"changed" => true,
-			"oldrevision" => $currRev
-		]);
-		$talk->updateRevisionOn($dbw, $savedRev, $savedRev->getId(), false);
-		# We need rollback the rollback
-		$revReflector = new ReflectionClass($rev);
-		$idReflector = $revReflector->getProperty("mId");
-		$idReflector->setAccessible(true);
-		# We need set the mId to 0 to make revStore create a new rev in db
-		$idReflector->setValue($rev, 0);
-		$oldMainSlot = $rev->getSlots()
-				->getSlot(SlotRecord::MAIN);
-		$slotReflector = new ReflectionClass($oldMainSlot);
-		$setFieldReflector = $slotReflector->getMethod("setField");
-		$setFieldReflector->setAccessible(true);
-		# OK, we also need change the main slot
-		$setFieldReflector->invoke($oldMainSlot, "slot_revision_id", 0);
-		# Then, apply this slot to rev
-		$slotsReflector = $revReflector->getProperty("mSlots");
-		$slotsReflector->setAccessible(true);
-		$slotsReflector->setValue($rev, new RevisionSlots([$oldMainSlot]));
-		$savedOldRev = $revStore->insertRevisionOn($rev, $dbw);
-		$wikiPage->doEditUpdates($savedOldRev, $actor, [
-			"changed" => true,
-			"oldrevision" => $curr
-		]);
-		$wikiPage->updateRevisionOn($dbw, $rev, $rev->getId(), false);
+		# TODO: Use PageUpdater rewrite
+		$revertedContent = $rev
+				->getSlots()
+				->getSlot(SlotRecord::MAIN)
+				->getContent();
+		$revertedWikitext = ContentHandler::getContentText($revertedContent);
+		# TODO: Use PageUpdater rewrite
 	}
 }
