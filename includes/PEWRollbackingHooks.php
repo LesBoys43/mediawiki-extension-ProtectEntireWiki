@@ -3,8 +3,6 @@ require_once "ProtectEntireWiki.php";
 include_once "PEWErrorUI.php";
 use MediaWiki\Page\Hook\RollbackCompleteHook;
 use MediaWiki\Revision\SlotRecord;
-use MediaWiki\Revision\MutableRevisionRecord;
-use MediaWiki\Revision\RevisionSlots;
 use MediaWiki\MediaWikiServices;
 class PEWRollbackingHooks implements RollbackCompleteHook {
 	public function onRollbackComplete($wikiPage, $user, $rev, $curr) {
@@ -25,12 +23,25 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 				->getSlot(SlotRecord::MAIN)
 				->getContent();
 		$currTalkWikitext = ContentHandler::getContentText($currTalkContent);
-		# TODO: Use PageUpdater rewrite
+		$newWikitext = $currTalkWikitext . $noticeMsg;
+		$talkUpdater = $talk->newPageUpdater($actor);
+		$talkUpdater->setContent(SlotRecord::MAIN, new WikitextContent($newWikitext));
+		$talkNewRev = $talkUodater->saveRevision(
+			CommentStoreComment::newUnsavedComment($ctx->msg("protectentirewiki-rollback-actionreverted-talkpage-editsummary")),
+			EDIT_UPDATE, EDIT_SUPPRESS_RC
+		);
+		$talk->doEditUpdates($talkNewRev, $actor);
+		$talk->doPurge();
 		$revertedContent = $rev
 				->getSlots()
 				->getSlot(SlotRecord::MAIN)
 				->getContent();
-		$revertedWikitext = ContentHandler::getContentText($revertedContent);
-		# TODO: Use PageUpdater rewrite
+		$wpUpdater = $wikiPage->newPageUpdater($actro);
+		$wpUpdater->setContent(SlotRecord::MAIN, $revertedContent);
+		$wpNewRev = $wpUpdater->saveRevision(
+			CommentStoreComment::newUnsavedComment($ctx->msg("protectentirewiki-rollback-actionreverted-rbrb-editsummary")),
+			EDIT_UPDATE, EDIT_SUPPRESS_RC
+		);
+		$wikiPage->doEditUpdates($wpNewRev, $actor);
 	}
 }
