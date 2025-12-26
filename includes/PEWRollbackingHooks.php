@@ -33,7 +33,7 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 		);
 		$talk->doEditUpdates($talkNewRev, $actor);
 		$talk->doPurge();
-		$revertedContent = $rev
+		$revertedContent = $curr
 				->getSlots()
 				->getSlot(SlotRecord::MAIN)
 				->getContent();
