@@ -43,6 +43,10 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 			CommentStoreComment::newUnsavedComment($ctx->msg("protectentirewiki-rollback-actionreverted-rbrb-editsummary")),
 			EDIT_UPDATE, EDIT_SUPPRESS_RC
 		);
-		$wikiPage->doEditUpdates($wpNewRev, $actor);
+		try {
+			$wikiPage->doEditUpdates($wpNewRev, $actor);
+		} catch ($e) {
+			# FIXME
+		}
 	}
 }
