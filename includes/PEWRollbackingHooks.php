@@ -23,10 +23,11 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 				->getSlot(SlotRecord::MAIN)
 				->getContent();
 		$currTalkWikitext = ContentHandler::getContentText($currTalkContent);
+		$noticeMsg = PEWErrorUI::getRollbackFailActorTalkpageWikitext($ctx, strval($wikiPage->getTitle()), $user, $actor);
 		$newWikitext = $currTalkWikitext . $noticeMsg;
 		$talkUpdater = $talk->newPageUpdater($actor);
 		$talkUpdater->setContent(SlotRecord::MAIN, new WikitextContent($newWikitext));
-		$talkNewRev = $talkUodater->saveRevision(
+		$talkNewRev = $talkUpdater->saveRevision(
 			CommentStoreComment::newUnsavedComment($ctx->msg("protectentirewiki-rollback-actionreverted-talkpage-editsummary")),
 			EDIT_UPDATE, EDIT_SUPPRESS_RC
 		);
