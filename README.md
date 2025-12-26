@@ -15,7 +15,7 @@ NOTICE: The user must already exist
 **$wgPEWProtectionConfigFileLoc**
 TYPE: Path on Server
 DESC: This variable configs the location that stores the protection configuration
-DEFAULT `{EXT_DIR}/pconf.txt`
+DEFAULT: `{EXT_DIR}/pconf.txt`
 NOTICE: The file must already exist
 
 ### Protection Configuration
