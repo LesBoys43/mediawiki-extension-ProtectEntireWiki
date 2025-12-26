@@ -45,7 +45,7 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 		);
 		try {
 			$wikiPage->doEditUpdates($wpNewRev, $actor);
-		} catch ($e) {
+		} catch (TypeError $e) {
 			# FIXME
 		}
 	}
