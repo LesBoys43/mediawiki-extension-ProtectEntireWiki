@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - includes/*.php
+  workflow_dispatch:
 
 jobs:
   main:
