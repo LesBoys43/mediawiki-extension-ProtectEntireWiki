@@ -37,7 +37,7 @@ class PEWRollbackingHooks implements RollbackCompleteHook {
 				->getSlots()
 				->getSlot(SlotRecord::MAIN)
 				->getContent();
-		$wpUpdater = $wikiPage->newPageUpdater($actro);
+		$wpUpdater = $wikiPage->newPageUpdater($actor);
 		$wpUpdater->setContent(SlotRecord::MAIN, $revertedContent);
 		$wpNewRev = $wpUpdater->saveRevision(
 			CommentStoreComment::newUnsavedComment($ctx->msg("protectentirewiki-rollback-actionreverted-rbrb-editsummary")),
