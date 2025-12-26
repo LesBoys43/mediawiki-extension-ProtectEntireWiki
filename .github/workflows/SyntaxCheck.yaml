@@ -1,0 +1,26 @@
+name: Syntax Check
+
+on:
+  push:
+    paths:
+      - includes/*.php
+
+jobs:
+  main:
+    name: Syntax Check
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version: ['7.4', '8.1', '8.5']
+
+    steps:
+      - name: Checkout
+        uses: action/checkout@v4
+
+      - name: Setup PHP
+        uses: nanasess/setup-php@v4
+        with:
+          php-version: ${{ matrix.php-version }}
+
+      - name: Do Syntax Check
+        run: bash maintenance/doSyntaxCheck.sh
