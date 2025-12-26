@@ -7,5 +7,7 @@
 	"protectentirewiki-rollback-actionreverted-talkpage-msg-sect-title": "（回退失败讨论页标题）",
 	"protectentirewiki-rollback-actionreverted-talkpage-msg-text-before-page": "（回退失败讨论页内容在页面名前的文字）",
 	"protectentirewiki-rollback-actionreverted-talkpage-msg-text-after-page": "（回退失败讨论页内容在页面名后的文字）",
-	"protectentirewiki-rollback-actionreverted-talkpage-sign": "（回退失败讨论页留言签名）"
+	"protectentirewiki-rollback-actionreverted-talkpage-sign": "（回退失败讨论页留言签名）",
+	"protectentirewiki-rollback-actionreverted-rbrb-editsummary": "（回退错误的回退时的编辑摘要）",
+	"protectentirewiki-rollback-actionreverted-talkpage-editsummary": "（提醒用户回退失败时的编辑摘要）"
 }

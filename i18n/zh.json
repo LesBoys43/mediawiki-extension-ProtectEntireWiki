@@ -7,5 +7,7 @@
 	"protectentirewiki-rollback-actionreverted-talkpage-msg-sect-title": "阁下的回退未能完成！",
 	"protectentirewiki-rollback-actionreverted-talkpage-msg-text-before-page": "，阁下目前正在编辑的维基或阁下目前编辑的页面（",
 	"protectentirewiki-rollback-actionreverted-talkpage-msg-text-after-page": "）所处的名字空间已经被统一保护，且回退也被设为不允许，请联系更高级的管理人员以获取更多信息。",
-	"protectentirewiki-rollback-actionreverted-talkpage-sign": "-- [[User:$1|$1]] (ProtectEntireWiki 扩展通知账户 𐊊 本账户为机器人)"
+	"protectentirewiki-rollback-actionreverted-talkpage-sign": "-- [[User:$1|$1]] (ProtectEntireWiki 扩展通知账户 𐊊 本账户为机器人)",
+	"protectentirewiki-rollback-actionreverted-rbrb-editsummary": "由于回退不被允许，自动撤销回退（本编辑由 ProtectEntireWiki 扩展做出）",
+	"protectentirewiki-rollback-actionreverted-talkpage-editsummary": "由于回退不被允许，自动提醒回退操作者（本编辑由 ProtectEntireWiki 扩展做出）"
 }

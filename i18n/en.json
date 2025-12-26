@@ -7,5 +7,7 @@
 	"protectentirewiki-rollback-actionreverted-talkpage-msg-sect-title": "Your rollback was not done!",
 	"protectentirewiki-rollback-actionreverted-talkpage-msg-text-before-page": ", the wiki you are editing or the namespace of the page you are editing (",
 	"protectentirewiki-rollback-actionreverted-talkpage-msg-text-after-page": ") has been protected by system operators, rollbacking is disallowed too, please ask higher level administration users for more information.",
-	"protectentirewiki-rollback-actionreverted-talkpage-sign": "-- [[User:$1|$1]] (ProtectEntireWiki Extension Notification Account 𐊊 This Account is BOT)"
+	"protectentirewiki-rollback-actionreverted-talkpage-sign": "-- [[User:$1|$1]] (ProtectEntireWiki Extension Notification Account 𐊊 This Account is BOT)",
+	"protectentirewiki-rollback-actionreverted-rbrb-editsummary": "Due the rollbacking has been disallowed, revert the rollback operation automaticlly (This edit made by ProtectEntireWiki extension)",
+	"protectentirewiki-rollback-actionreverted-talkpage-editsummary": "Due the rollbacking has been disallowed, notify the user that tried rollback (This edit made by ProtectEntireWiki extension)"
 }
