@@ -49,6 +49,11 @@ jobs:
       - name: Download MediaWiki
         run: "cd ../mediawiki; wget -U \"mediawiki-extension-ProtectEntireWiki-ci-bot/1.0 (https://github.com/LesBoys43/mediawiki-extension-ProtectEntireWiki/; lesboyspp43@outlook.com) wget\" $MW_URL -o mediawiki.tar.gz"
 
+      - name: Debug
+        uses: mxschmitt/action-tmate@v3.23
+        with:
+          limit-access-to-actor: false
+
       - name: Extract MediaWiki
         run: "cd ../mediawiki; tar xvf mediawiki.tar.gz"
 
