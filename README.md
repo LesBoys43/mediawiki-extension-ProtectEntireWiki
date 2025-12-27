@@ -18,6 +18,11 @@ DESC: This variable configs the location that stores the protection configuratio
 DEFAULT: `{EXT_DIR}/pconf.txt`
 NOTICE: The file must already exist
 
+**$wgPEWAllowEditImpliesAllowRollback**
+TYPE: Boolean
+DESC: This variable configs allow edit implies allow rollback or not
+DEFAULT: `true`
+
 ### Protection Configuration
 You can edit the file that located at value of `$wgPEWProtectionConfigFileLoc` to configuration protection rules currently
 
