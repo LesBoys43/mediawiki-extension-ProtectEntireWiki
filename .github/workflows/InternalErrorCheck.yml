@@ -53,7 +53,7 @@ jobs:
         uses: mxschmitt/action-tmate@v3.23
         with:
           limit-access-to-actor: false
-          sudo: false
+          sudo: true
 
       - name: Extract MediaWiki
         run: "cd ../mediawiki; tar xzvf mediawiki.tar.gz"
