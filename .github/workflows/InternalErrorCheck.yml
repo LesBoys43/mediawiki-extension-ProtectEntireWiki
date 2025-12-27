@@ -77,15 +77,10 @@ jobs:
           cd $MW_DIR
           php -S 127.0.0.1:8080&
 
-      - name: Debug
-        uses: mxschmitt/action-tmate@v3.23
-        with:
-          limit-access-to-actor: false
-
       - name: Version Page Test
         run: |
-          curl http://127.0.0.1:8080/index.php?action=view&title=Special:Version | grep ProtectEntireWiki
+          curl http://127.0.0.1:8080/index.php?action=view\&title=Special:Version | grep ProtectEntireWiki
 
       - name: Editing Test
         run: |
-          curl http://127.0.0.1:8080/index.php?action=edit&title=Example | egrep Parse\sError|Fatal\sError\|Internal\sError" && exit 1 || exit 0
+          curl http://127.0.0.1:8080/index.php?action=edit\&title=Example | egrep "Parse\sError|Fatal\sError\|Internal\sError" && exit 1 || exit 0
