@@ -28,12 +28,7 @@ jobs:
           php-version: ${{ matrix.php-version }}
 
       - name: Setup MariaDB
-        uses: gerlero/apt-install@v1.3.11
-        with:
-          packages: mariadb-server
-          install-suggests: false
-          install-recommends: false
-          update: true
+        run: sudo apt-get install mariadb-server
 
       - name: Launch MariaDB
         run: sudo systemctl start mariadbd
