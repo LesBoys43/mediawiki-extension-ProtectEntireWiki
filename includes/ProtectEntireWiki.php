@@ -52,8 +52,8 @@ class ProtectEntireWiki {
 		return false;
 	}
 	public function canRollback($ns = "*", $user = null) {
-		if ($this->canEdit($ns, $user)) {
-			# Can edit implies can rollback
+		if ($this->canEdit($ns, $user) && ($wgPEWAllowEditImpliesAllowRollback ?? true)) {
+			# Can edit implies can rollback if configed
 			return true;
 		}
 		if (!isset($this->conf[strval($ns)])) {
