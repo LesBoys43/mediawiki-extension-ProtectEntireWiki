@@ -30,7 +30,7 @@ jobs:
       - name: Setup MariaDB
         uses: gerlero/apt-install@v1.3.11
         with:
-          packages: mariadb
+          packages: mariadb-server
           install-suggests: false
           install-recommends: false
           update: true
