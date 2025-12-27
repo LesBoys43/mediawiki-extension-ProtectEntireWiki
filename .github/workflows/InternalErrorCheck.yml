@@ -3,7 +3,7 @@ name: Internal Error Check
 on:
   push:
     paths:
-      - include/*.php
+      - includes/*.php
       - extension.json
   workflow_dispatch:
 
