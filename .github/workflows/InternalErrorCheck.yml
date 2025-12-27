@@ -61,7 +61,7 @@ jobs:
       - name: Setup MediaWiki
         run: |
           cd $MW_DIR
-          php maintenance/install.php --dbprefix=mw --dbserver=localhost --dbport=3306 --dbtype=mysql --installdbuser=root --installdbpass=1234 --scriptpath="/" --with-extensions --server="http://127.0.0.1:8080/" --lang=en --pass=wfyguwfjioncvisubf TestWiki admin
+          php maintenance/install.php --dbprefix=mw --dbserver=localhost --dbport=3306 --dbtype=mysql --dbuser=root --dbpass=1234 --installdbuser=root --installdbpass=1234 --scriptpath="/" --with-extensions --server="http://127.0.0.1:8080/" --lang=en --pass=wfyguwfjioncvisubf TestWiki admin
 
       - name: Launch Server
         run: |
