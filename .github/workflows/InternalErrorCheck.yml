@@ -1,9 +1,6 @@
 name: Internal Error Check
 
 on:
-  push:
-    paths:
-      - includes/*.php
   workflow_dispatch:
 
 jobs:
