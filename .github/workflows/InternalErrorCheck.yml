@@ -49,7 +49,7 @@ jobs:
         run: "cd .. && mkdir mediawiki"
 
       - name: Build the MediaWiki URL
-        run: "echo \"MW_URL=https://releases.wikimedia.org/mediawiki/$(echo ${{ matrix.mw-version }} | cut -d'.' -f1).$(echo ${{ matrix.mw-version }} | cut -d'.' -f2)/mediawiki-core-${{ matirx.mw-version }}.tar.gz\">>$GITHUB_ENV"
+        run: "echo \"MW_URL=https://releases.wikimedia.org/mediawiki/$(echo ${{ matrix.mw-version }} | cut -d'.' -f1).$(echo ${{ matrix.mw-version }} | cut -d'.' -f2)/mediawiki-core-${{ matrix.mw-version }}.tar.gz\">>$GITHUB_ENV"
 
       - name: Download MediaWiki
         run: "cd ../mediawiki; wget $MW_URL -o mediawiki.tar.gz"
