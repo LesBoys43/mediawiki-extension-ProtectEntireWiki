@@ -1,6 +1,10 @@
 name: Internal Error Check
 
 on:
+  push:
+    paths:
+      - include/*.php
+      - extension.json
   workflow_dispatch:
 
 jobs:
@@ -47,7 +51,7 @@ jobs:
         run: "cd ../mediawiki; wget -U \"mediawiki-extension-ProtectEntireWiki-ci-bot/1.0 (https://github.com/LesBoys43/mediawiki-extension-ProtectEntireWiki/; lesboyspp43@outlook.com) wget\" $MW_URL -O mediawiki.tar.gz"
 
       - name: Extract MediaWiki
-        run: "cd ../mediawiki; tar xvf mediawiki.tar.gz"
+        run: "cd ../mediawiki; tar xzf mediawiki.tar.gz"
 
       - name: Get MediaWiki directory
         run: "cd ../mediawiki; cd mediawiki-*; echo \"MW_DIR=$(pwd)\">>$GITHUB_ENV"
@@ -83,4 +87,6 @@ jobs:
 
       - name: Editing Test
         run: |
-          curl http://127.0.0.1:8080/index.php?action=edit\&title=Example | egrep "Parse\sError|Fatal\sError\|Internal\sError" && exit 1 || exit 0
+          curl http://127.0.0.1:8080/index.php?action=edit\&title=Example > _editing.html
+          cat _editing.html | grep Error && exit 1
+          exit 0
