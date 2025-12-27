@@ -31,7 +31,7 @@ jobs:
         run: sudo apt-get install mariadb-server
 
       - name: Launch MariaDB
-        run: sudo systemctl start mariadbd
+        run: sudo systemctl start mariadb
 
       - name: Init MariaDB
         run: |
