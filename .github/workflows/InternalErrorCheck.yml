@@ -1,0 +1,82 @@
+name: Internal Error Check
+
+on:
+  push:
+    paths:
+      - includes/*.php
+  workflow_dispatch:
+
+jobs:
+  mwtest:
+    name: Internal Error Check
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        mw-version: ["1.35.14", "1.39.17", "1.43.6"]
+        php-version: ["7.4", "8.1"]
+        exclude:
+          - mw-version: "1.43.6"
+            php-version: "7.4"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: nanasess/setup-php@v4
+        with:
+          php-version: ${{ matrix.php-version }}
+
+      - name: Setup MariaDB
+        uses: gerlero/apt-install@v1.3.11
+        with:
+          packages: mariadb
+          install-suggests: false
+          install-recommends: false
+          update: true
+
+      - name: Launch MariaDB
+        run: sudo systemctl start mariadbd
+
+      - name: Init MariaDB
+        run: |
+          sudo mysql -e "
+            ALTER USER 'root'@'localhost' IDENTIFIED VIA mysql_native_password USING PASSWORD('1234');
+            FLUSH PRIVILEGES;
+          "
+
+      - name: Make directory for MediaWiki
+        run: "cd .. && mkdir mediawiki"
+
+      - name: Build the MediaWiki URL
+        run: "echo \"MW_URL=https://releases.wikimedia.org/mediawiki/$(echo ${{ matrix.mw-version }} | cut -d'.' -f1).$(echo ${{ matrix.mw-version }} | cut -d'.' -f2)/mediawiki-core-${{ matirx.mw-version }}.tar.gz\">>$GITHUB_ENV"
+
+      - name: Download MediaWiki
+        run: "cd ../mediawiki; wget $MW_URL -o mediawiki.tar.gz"
+
+      - name: Extract MediaWiki
+        run: "cd ../mediawiki; tar xzvf mediawiki.tar.gz"
+
+      - name: Get MediaWiki directory
+        run: "cd ../mediawiki; cd mediawiki-*; echo \"MW_DIR=$(pwd)\">>$GITHUB_ENV"
+
+      - name: Copy extension to MediaWiki directory
+        run: "cp /home/runner/work/mediawiki-extension-ProtectEntireWiki/mediawiki-extension-ProtectEntireWiki $MW_DIR/extensions -R"
+
+      - name: Setup MediaWiki
+        run: |
+          cd $MW_DIR
+          php maintenance/install.php --dbprefix=mw --dbserver=localhost --dbport=3306 --dbtype=mysql --installdbuser=root --installdbpass=1234 --scriptpath="/" --with-extensions --server="http://127.0.0.1:8080/" --lang=en --pass=1234 TestWiki admin
+
+      - name: Launch Server
+        run: |
+          cd $MW_DIR
+          php -S 127.0.0.1:8080&
+
+      - name: Version Page Test
+        run: |
+          curl http://127.0.0.1:8080/index.php?action=view&title=Special:Version | grep ProtectEntireWiki
+
+      - name: Editing Test
+        run: |
+          curl http://127.0.0.1:8080/index.php?action=edit&title=Example | egrep Parse\sError|Fatal\sError\|Internal\sError" && exit 1 || exit 0
