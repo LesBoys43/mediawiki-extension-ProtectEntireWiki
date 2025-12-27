@@ -47,7 +47,7 @@ jobs:
         run: "echo \"MW_URL=https://releases.wikimedia.org/mediawiki/$(echo ${{ matrix.mw-version }} | cut -d'.' -f1).$(echo ${{ matrix.mw-version }} | cut -d'.' -f2)/mediawiki-core-${{ matrix.mw-version }}.tar.gz\">>$GITHUB_ENV"
 
       - name: Download MediaWiki
-        run: "cd ../mediawiki; wget $MW_URL -o mediawiki.tar.gz"
+        run: "cd ../mediawiki; wget -U \"mediawiki-extension-ProtectEntireWiki-ci/1.0 (https://github.com/LesBoys43/mediawiki-extension-ProtectEntireWiki/; lesboyspp43@outlook.com)\" $MW_URL -o mediawiki.tar.gz"
 
       - name: Extract MediaWiki
         run: "cd ../mediawiki; tar xzvf mediawiki.tar.gz"
