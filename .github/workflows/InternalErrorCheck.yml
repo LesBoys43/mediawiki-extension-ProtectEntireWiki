@@ -52,13 +52,25 @@ jobs:
       - name: Get MediaWiki directory
         run: "cd ../mediawiki; cd mediawiki-*; echo \"MW_DIR=$(pwd)\">>$GITHUB_ENV"
 
-      - name: Copy extension to MediaWiki directory
-        run: "cp /home/runner/work/mediawiki-extension-ProtectEntireWiki/mediawiki-extension-ProtectEntireWiki $MW_DIR/extensions -R"
+      - name: Ensure Extension Directory Exists
+        run: "mkdir - p $MW_DIR/extensions/ProtectEntireWiki"
+
+      - name: Copy Extension to MediaWiki Directory
+        run: "cp /home/runner/work/mediawiki-extension-ProtectEntireWiki/mediawiki-extension-ProtectEntireWiki/* $MW_DIR/extensions/ProtectEntireWiki/ -R"
 
       - name: Setup MediaWiki
         run: |
           cd $MW_DIR
-          php maintenance/install.php --dbprefix=mw --dbserver=localhost --dbport=3306 --dbtype=mysql --dbuser=root --dbpass=1234 --installdbuser=root --installdbpass=1234 --scriptpath="/" --with-extensions --server="http://127.0.0.1:8080/" --lang=en --pass=wfyguwfjioncvisubf TestWiki admin
+          php maintenance/install.php --dbprefix=mw --dbserver=localhost --dbport=3306 --dbtype=mysql --dbuser=root --dbpass=1234 --installdbuser=root --installdbpass=1234 --scriptpath="/" --server="http://127.0.0.1:8080/" --lang=en --pass=wfyguwfjioncvisubf TestWiki admin
+
+      - name: Enable ProtectEntireWiki Extension
+        run: "echo \"wfLoadExtension('ProtectEntireWiki');\" >> $MW_DIR/LocalSettings.php"
+
+      - name: Update MediaWiki Database
+        continue-on-error: true
+        run: |
+          cd $MW_DIR
+          php maintenance/run.php update --force
 
       - name: Launch Server
         run: |
