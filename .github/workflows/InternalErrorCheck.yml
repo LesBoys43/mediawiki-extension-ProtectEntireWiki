@@ -70,12 +70,17 @@ jobs:
         continue-on-error: true
         run: |
           cd $MW_DIR
-          php maintenance/run.php update --force
+          php maintenance/update.php --force
 
       - name: Launch Server
         run: |
           cd $MW_DIR
           php -S 127.0.0.1:8080&
+
+      - name: Debug
+        uses: mxschmitt/action-tmate@v3.23
+        with:
+          limit-access-to-actor: false
 
       - name: Version Page Test
         run: |
