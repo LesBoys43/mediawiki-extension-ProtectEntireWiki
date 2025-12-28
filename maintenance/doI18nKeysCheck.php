@@ -9,7 +9,7 @@ if (!json_validate($mainCont)) {
 	# Due the main file invalid, we cannot continue, because check integrity of other keys requires valid main.
 	exit(255);
 }
-$mainData = json_decode($mainCont);
+$mainData = json_decode($mainCont, true);
 foreach ($files as $file) {
 	if ($file == $main) {
 		# We should skip main self
@@ -20,7 +20,7 @@ foreach ($files as $file) {
 		$e255 = true;
 		continue;
 	}
-	$data = json_decode($cont);
+	$data = json_decode($cont, true);
 	$fail = false;
 	foreach (array_keys($mainData) as $key) {
 		if (!isset($data[$key])) {
