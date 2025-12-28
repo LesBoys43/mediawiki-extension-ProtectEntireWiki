@@ -29,10 +29,10 @@ foreach ($files as $file) {
 		}
 	}
 	if ($fail) {
-		echo $file . "missed some keys";
+		echo $file . " missed some keys";
 		$failcnt++;
 	} else {
-		echo $file . "has all required keys";
+		echo $file . " has all required keys";
 	}
 }
 exit($e255 ? 255 : $failcnt);
