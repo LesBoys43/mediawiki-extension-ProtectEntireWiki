@@ -1,9 +1,9 @@
 # Roadmap
 ## Current version
-1.0.rcFinal
+1.1.lb1
 
 ## Next version
-1.0
+1.1.lb2
 
 ## Future features
 * Audit logs
