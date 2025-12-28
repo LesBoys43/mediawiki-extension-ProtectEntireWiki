@@ -9,7 +9,7 @@ if (!json_validate($mainCont)) {
 	# Due the main file invalid, we cannot continue, because check integrity of other keys requires valid main.
 	exit(255);
 }
-$mainData = json_decode($main);
+$mainData = json_decode($mainCont);
 foreach ($files as $file) {
 	if ($file == $main) {
 		# We should skip main self
