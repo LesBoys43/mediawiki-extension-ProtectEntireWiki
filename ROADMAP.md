@@ -1,9 +1,9 @@
 # Roadmap
 ## Current version
-1.0.rcFinal
+1.0
 
 ## Next version
-1.0
+(This branch will not release new version)
 
 ## Future features
 * Audit logs
