@@ -3,7 +3,7 @@
 1.0.rc1
 
 ## Next version
-1.0.rc2
+1.0.rcFinal
 
 ## Future features
 * Audit logs
