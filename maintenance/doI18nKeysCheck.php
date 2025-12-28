@@ -13,6 +13,7 @@ $mainData = json_decode($mainCont, true);
 foreach ($files as $file) {
 	if ($file == $main) {
 		# We should skip main self
+		continue;
 	}
 	$cont = file_get_contents($file);
 	if (!json_validate($cont)) {
