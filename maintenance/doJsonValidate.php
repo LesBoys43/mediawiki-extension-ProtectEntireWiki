@@ -4,7 +4,7 @@ $files = array_merge($files, glob("i18n/*.json"));
 $failcnt = 0;
 foreach ($files as $file) {
 	$cont = file_get_contents($file);
-	echo "Validating: " . $file . "\n"’;
+	echo "Validating: " . $file . "\n";
 	$result = json_validate($cont);
 	if ($result) {
 		echo $file . " passed validation" . "\n";
