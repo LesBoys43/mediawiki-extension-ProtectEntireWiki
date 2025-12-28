@@ -13,4 +13,4 @@ foreach ($files as $file) {
 		echo $file . " failed validation" . "\n";
 	}
 }
-exit($fail_cnt);
+exit($failcnt);
