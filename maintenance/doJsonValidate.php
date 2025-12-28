@@ -1,7 +1,7 @@
 <?php
 $files = ["extensions"];
 $files = array_merge($files, glob("i18n/*.json"));
-$failcnt = 0
+$failcnt = 0;
 foreach ($files as $file) {
 	$cont = file_get_contents($file);
 	echo "Validating: " . $file;
