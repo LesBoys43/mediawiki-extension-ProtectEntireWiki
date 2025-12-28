@@ -1,6 +1,8 @@
 # ProtectEntireWiki
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/LesBoys43/mediawiki-extension-ProtectEntireWiki/SyntaxCheck.yaml?branch=master&style=for-the-badge&logo=githubactions&logoColor=lime&label=syntax)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/LesBoys43/mediawiki-extension-ProtectEntireWiki/InternalErrorCheck.yml?branch=master&style=for-the-badge&logo=githubactions&logoColor=lime&label=build)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/LesBoys43/mediawiki-extension-ProtectEntireWiki/I18nKeysValidate.yml?branch=master&style=for-the-badge&logo=wikisource&logoColor=darkblue&label=i18n)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/LesBoys43/mediawiki-extension-ProtectEntireWiki/codacy.yml?branch=master&style=for-the-badge&logo=codacy1&logoColor=white&label=security)
 ![GitHub License](https://img.shields.io/github/license/LesBoys43/mediawiki-extension-ProtectEntireWiki?style=for-the-badge&logo=bsd&logoColor=cyan)
 ![GitHub Tag](https://img.shields.io/github/v/tag/LesBoys43/mediawiki-extension-ProtectEntireWiki?include_prereleases&style=for-the-badge&logo=wikimediafoundation&logoColor=lightgrey&label=version)
 ![GitHub Repo stars](https://img.shields.io/github/stars/LesBoys43/mediawiki-extension-ProtectEntireWiki?style=for-the-badge&logo=wikidata&logoColor=skyblue)
