@@ -1,5 +1,5 @@
 <?php
-$files = ["extensions"];
+$files = ["extension.json"];
 $files = array_merge($files, glob("i18n/*.json"));
 $failcnt = 0;
 foreach ($files as $file) {
