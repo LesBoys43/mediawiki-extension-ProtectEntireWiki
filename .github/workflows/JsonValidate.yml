@@ -1,0 +1,25 @@
+name: Json Validate
+
+on:
+  push:
+    paths:
+      - i18n/*.json
+      - extension.json
+  workflow_dispatch:
+
+jobs:
+  jsonvali:
+    name: Json Validate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: nanasess/setup-php@v4
+        with:
+          php-version: 8.3
+
+      - name: Execute Test
+        run: php maintenance/doJsonValidate.php >> $GITHUB_STEP_SUMMARY
